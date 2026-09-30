@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.util.List;
 
 class DecaimentoPanel extends JPanel {
+    private static final long serialVersionUID = 1L;
+
     final JTextField inicial = new JTextField("100");
     final JTextField meiaVida = new JTextField("10");
     final JTextField tempoFinal = new JTextField("50");

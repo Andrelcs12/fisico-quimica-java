@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ColorimetriaPanel extends JPanel {
+    private static final long serialVersionUID = 1L;
+
     final JTextField id = new JTextField();
     final JTextField i0 = new JTextField();
     final JTextField i = new JTextField();

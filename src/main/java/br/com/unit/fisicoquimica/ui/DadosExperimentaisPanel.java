@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.util.List;
 
 class DadosExperimentaisPanel extends JPanel {
+    private static final long serialVersionUID = 1L;
+
     private static final List<MedicaoExperimental> DADOS_DEMONSTRACAO = List.of(
             new MedicaoExperimental(0, 10),
             new MedicaoExperimental(1, 12),

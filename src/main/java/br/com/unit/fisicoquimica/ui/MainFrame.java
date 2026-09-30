@@ -5,6 +5,8 @@ import javax.swing.JTabbedPane;
 import java.awt.Dimension;
 
 public class MainFrame extends JFrame {
+    private static final long serialVersionUID = 1L;
+
     public MainFrame() {
         super("Físico-Química com Java");
         setDefaultCloseOperation(EXIT_ON_CLOSE);

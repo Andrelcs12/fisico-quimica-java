@@ -13,6 +13,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 
 class CalculosPanel extends JPanel {
+    private static final long serialVersionUID = 1L;
+
     private final JTextField valor = new JTextField(12);
     private final JComboBox<String> tipo = new JComboBox<>(new String[]{"Celsius → Kelvin", "Kelvin → Celsius"});
     private final JLabel resultado = new JLabel("Informe um valor e calcule.");

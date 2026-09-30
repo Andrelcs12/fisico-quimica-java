@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ReacaoPanel extends JPanel {
+    private static final long serialVersionUID = 1L;
+
     final JTextField temperatura = new JTextField();
     final JTextField tempo = new JTextField();
     final DefaultTableModel tabela = new DefaultTableModel(new String[]{"Temperatura", "Tempo", "Taxa (1/tempo)"}, 0) {
