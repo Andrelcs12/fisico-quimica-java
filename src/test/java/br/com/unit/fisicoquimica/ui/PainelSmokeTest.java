@@ -10,13 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PainelSmokeTest {
     @Test
-    void constroiCincoPaineisNoEdt() throws Exception {
+    void constroiSeisPaineisNoEdt() throws Exception {
         SwingUtilities.invokeAndWait(() -> {
             assertNotNull(new CalculosPanel());
             assertNotNull(new ReacaoPanel());
             assertNotNull(new DecaimentoPanel());
             assertNotNull(new ColorimetriaPanel());
             assertNotNull(new DadosExperimentaisPanel());
+            assertNotNull(new RelatorioPanel());
         });
     }
 
