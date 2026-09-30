@@ -2,44 +2,42 @@
 
 ## Ambiente
 
-- Java encontrado: OpenJDK Temurin 24.0.2.
-- `javac`: 24.0.2.
-- Maven utilizado: Apache Maven 3.9.16 temporário, com compilação `release 17`.
-- Sistema: Windows 11 amd64.
-- O Maven Wrapper foi encontrado, mas neste ambiente retornou `Acesso negado`; a validação foi executada com Maven oficial equivalente.
+- Java 17 utilizado para compilar o código principal e os testes.
+- Maven não está disponível no `PATH` deste ambiente.
+- O Maven Wrapper foi executado, mas retornou `Acesso negado`.
 
 ## Testes
 
-- Quantidade: 18.
-- Passaram: 18.
-- Falharam: 0.
+- Quantidade: 31.
+- Aprovados: 31.
+- Falhas: 0.
 - Erros: 0.
 - Ignorados: 0.
 
+Os testes foram executados diretamente com Java 17, JUnit 5 e as dependências locais já disponíveis.
+
 ## Fórmulas verificadas
 
-- Temperatura: conversões e Kelvin inválido.
-- Reação: taxa comparativa `1/tempo` e tempo inválido.
-- Decaimento: meia-vida, validações e série monotônica.
-- Colorimetria: `log10(I0/I)` e entradas inválidas.
-- Estatística: média, mínimo, máximo, único valor e coleção vazia.
+- Conversão entre Celsius e Kelvin, incluindo zero absoluto.
+- Taxa comparativa da reação `1 / tempo` e tempo inválido.
+- Decaimento radioativo, validações e série decrescente.
+- Absorbância `log10(I0 / I)` e entradas inválidas.
+- Estatísticas: quantidade, soma, média, mínimo, máximo, amplitude e mediana.
 
-## Arquivos
+## Dados e interface
 
-- Leitura CSV: válido, linhas vazias, inválido e `sample-data`.
-- Exportação CSV: cabeçalho, linhas e valor de decaimento verificados.
-- Absorbância: referência positiva máxima, tempo zero e ausência de valores não finitos.
-
-## Interface
-
-- Componentes: os cinco `JPanel` foram instanciados no EDT por smoke test.
-- Gráficos: datasets de decaimento e colorimetria foram verificados programaticamente.
-- Inspeção visual: não realizada; o ambiente de validação é headless.
+- Leitura CSV: cabeçalho `Time,Signal`, linhas vazias, valores inválidos e dados de exemplo.
+- Exportação CSV: dados de reação, decaimento, colorimetria e dados experimentais.
+- Gráficos: datasets de decaimento, colorimetria e dados experimentais.
+- Interface: os cinco painéis oficiais foram instanciados no EDT por smoke test.
 
 ## Build
 
 ```text
-mvn test: PASS (18 testes)
-mvn clean package: PASS
-JAR: PASS em modo headless; manifesto e JFreeChart incorporado verificados
+Compilação direta com Java 17: PASS
+Inicialização em modo headless: PASS
+mvn test: não executado (Maven indisponível)
+mvn clean package: não executado (Maven indisponível)
+mvnw.cmd test: não executado (Acesso negado)
+mvnw.cmd clean package: não executado (Acesso negado)
 ```
