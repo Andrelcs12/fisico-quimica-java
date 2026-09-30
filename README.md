@@ -27,7 +27,7 @@ O projeto usa os conceitos pedidos para a disciplina sem colocar regras científ
 - **Encapsulamento:** cada calculadora guarda suas validações e expõe apenas o método `calcular`.
 - **Herança:** `CalculadoraBase` reúne as validações usadas pelas calculadoras concretas.
 - **Polimorfismo:** `LaboratorioService` trabalha com a interface `Calculadora`; Celsius, Kelvin, taxa e absorbância podem ser executados pelo mesmo contrato.
-- **Baixo acoplamento:** a interface Swing chama serviços e não conhece a implementação das fórmulas.
+- **Baixo acoplamento:** a tela de conversão chama `LaboratorioService` pelo código do cálculo e não executa fórmulas diretamente.
 
 ## Arquitetura
 
