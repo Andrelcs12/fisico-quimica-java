@@ -21,12 +21,17 @@ public class CsvService {
 
         List<MedicaoExperimental> medicoes = new ArrayList<>();
         List<String> linhas = Files.readAllLines(arquivo.toPath(), StandardCharsets.UTF_8);
+        boolean cabecalhoLido = false;
         for (int indice = 0; indice < linhas.size(); indice++) {
             String linha = linhas.get(indice).trim();
             if (linha.isEmpty()) continue;
 
             String[] colunas = linha.contains(";") ? linha.split(";", -1) : linha.split(",", -1);
-            if (indice == 0 && !possuiDadosNumericos(colunas)) continue;
+            if (!cabecalhoLido) {
+                validarCabecalho(colunas, indice + 1);
+                cabecalhoLido = true;
+                continue;
+            }
             if (colunas.length != 2) throw new IOException("Linha " + (indice + 1) + " deve possuir exatamente Time e Signal.");
             try {
                 medicoes.add(new MedicaoExperimental(converterNumero(colunas[0]), converterNumero(colunas[1])));
@@ -36,6 +41,14 @@ public class CsvService {
         }
         if (medicoes.isEmpty()) throw new IOException("O arquivo não contém medições numéricas.");
         return medicoes;
+    }
+
+    private void validarCabecalho(String[] colunas, int numeroLinha) throws IOException {
+        if (colunas.length != 2
+                || !"time".equalsIgnoreCase(colunas[0].trim())
+                || !"signal".equalsIgnoreCase(colunas[1].trim())) {
+            throw new IOException("A linha " + numeroLinha + " deve conter o cabeçalho Time,Signal.");
+        }
     }
 
     public List<PontoAbsorbancia> calcularAbsorbancia(List<MedicaoExperimental> dados) {
@@ -70,19 +83,6 @@ public class CsvService {
     private void escreverLinha(BufferedWriter escritor, String linha) throws IOException {
         escritor.write(linha == null ? "" : linha);
         escritor.write(System.lineSeparator());
-    }
-
-    private boolean possuiDadosNumericos(String[] colunas) {
-        return colunas.length >= 2 && ehNumero(colunas[0]) && ehNumero(colunas[1]);
-    }
-
-    private boolean ehNumero(String texto) {
-        try {
-            converterNumero(texto);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
     }
 
     private double converterNumero(String texto) {
