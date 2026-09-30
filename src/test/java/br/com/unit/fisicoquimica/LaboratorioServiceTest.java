@@ -2,6 +2,7 @@ package br.com.unit.fisicoquimica;
 
 import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
 import br.com.unit.fisicoquimica.domain.calculo.CelsiusParaKelvin;
+import br.com.unit.fisicoquimica.domain.calculo.DecaimentoNuclear;
 import br.com.unit.fisicoquimica.domain.calculo.KelvinParaCelsius;
 import br.com.unit.fisicoquimica.domain.calculo.TaxaComparativa;
 import br.com.unit.fisicoquimica.service.LaboratorioService;
@@ -28,5 +29,14 @@ class LaboratorioServiceTest {
     void rejeitaCodigoQueNaoFoiRegistrado() {
         LaboratorioService laboratorio = new LaboratorioService(List.of(new CelsiusParaKelvin()));
         assertThrows(IllegalArgumentException.class, () -> laboratorio.calcular("inexistente", 10));
+    }
+
+    @Test
+    void executaDecaimentoPeloMesmoContratoDasOutrasCalculadoras() {
+        LaboratorioService laboratorio = new LaboratorioService(List.of(new DecaimentoNuclear()));
+
+        assertEquals(25, laboratorio.calcular("decaimento-nuclear", 100, 10, 20), 0.0001);
+        assertThrows(IllegalArgumentException.class,
+                () -> laboratorio.calcular("decaimento-nuclear", 100, 0, 20));
     }
 }
