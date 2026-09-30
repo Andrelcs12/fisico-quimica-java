@@ -1,8 +1,6 @@
-package br.com.unit.fisicoquimica.service;
+package br.com.unit.fisicoquimica.calculos;
 
 import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
-import br.com.unit.fisicoquimica.domain.calculo.CelsiusParaKelvin;
-import br.com.unit.fisicoquimica.domain.calculo.KelvinParaCelsius;
 
 public class TemperaturaService {
     private final Calculadora celsiusParaKelvin = new CelsiusParaKelvin();

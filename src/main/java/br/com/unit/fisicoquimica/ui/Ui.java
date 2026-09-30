@@ -25,25 +25,25 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Locale;
 
-final class Ui {
+public final class Ui {
     private static final int LARGURA_GRAFICO_PNG = 1200;
     private static final int ALTURA_GRAFICO_PNG = 700;
 
     private Ui() { }
 
-    static JPanel painel(String titulo) {
+    public static JPanel painel(String titulo) {
         JPanel painel = new JPanel(new BorderLayout(12, 12));
         painel.setBorder(BorderFactory.createTitledBorder(new EmptyBorder(18, 18, 18, 18), titulo));
         return painel;
     }
 
-    static JPanel formulario() {
+    public static JPanel formulario() {
         JPanel painel = new JPanel(new GridBagLayout());
         painel.setBorder(new EmptyBorder(8, 8, 8, 8));
         return painel;
     }
 
-    static void linha(JPanel painel, int linha, String texto, JComponent componente) {
+    public static void linha(JPanel painel, int linha, String texto, JComponent componente) {
         GridBagConstraints restricoes = new GridBagConstraints();
         restricoes.insets = new Insets(5, 5, 5, 5);
         restricoes.anchor = GridBagConstraints.WEST;
@@ -56,13 +56,13 @@ final class Ui {
         painel.add(componente, restricoes);
     }
 
-    static File salvar(Component componente, String nome) {
+    public static File salvar(Component componente, String nome) {
         JFileChooser seletor = new JFileChooser();
         seletor.setSelectedFile(new File(nome));
         return seletor.showSaveDialog(componente) == JFileChooser.APPROVE_OPTION ? seletor.getSelectedFile() : null;
     }
 
-    static void mostrarGrafico(Component origem, String titulo, JFreeChart grafico, String nomePadrao) {
+    public static void mostrarGrafico(Component origem, String titulo, JFreeChart grafico, String nomePadrao) {
         ChartPanel painelGrafico = new ChartPanel(grafico);
         painelGrafico.setMouseWheelEnabled(true);
         JFrame janela = new JFrame(titulo);

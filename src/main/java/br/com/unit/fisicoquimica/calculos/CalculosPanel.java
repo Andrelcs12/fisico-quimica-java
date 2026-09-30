@@ -1,7 +1,7 @@
-package br.com.unit.fisicoquimica.ui;
+package br.com.unit.fisicoquimica.calculos;
 
-import br.com.unit.fisicoquimica.service.TemperaturaService;
 import br.com.unit.fisicoquimica.util.Dialogos;
+import br.com.unit.fisicoquimica.ui.Ui;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -12,7 +12,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
 
-class CalculosPanel extends JPanel {
+public class CalculosPanel extends JPanel {
     private static final long serialVersionUID = 1L;
 
     private final JTextField valor = new JTextField(12);
@@ -20,7 +20,7 @@ class CalculosPanel extends JPanel {
     private final JLabel resultado = new JLabel("Informe um valor e calcule.");
     private final TemperaturaService service = new TemperaturaService();
 
-    CalculosPanel() {
+    public CalculosPanel() {
         setLayout(new BorderLayout());
         JPanel formulario = Ui.formulario();
         Ui.linha(formulario, 0, "Conversão:", tipo);

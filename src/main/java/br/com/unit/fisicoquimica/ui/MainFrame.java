@@ -1,5 +1,8 @@
 package br.com.unit.fisicoquimica.ui;
 
+import br.com.unit.fisicoquimica.calculos.CalculosPanel;
+import br.com.unit.fisicoquimica.reacao.ReacaoPanel;
+
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import java.awt.Dimension;

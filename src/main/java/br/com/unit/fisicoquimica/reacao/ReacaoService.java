@@ -1,7 +1,6 @@
-package br.com.unit.fisicoquimica.service;
+package br.com.unit.fisicoquimica.reacao;
 
 import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
-import br.com.unit.fisicoquimica.domain.calculo.TaxaComparativa;
 
 public class ReacaoService {
     private final Calculadora taxaComparativa = new TaxaComparativa();

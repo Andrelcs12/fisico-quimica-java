@@ -1,4 +1,6 @@
-package br.com.unit.fisicoquimica.domain.calculo;
+package br.com.unit.fisicoquimica.reacao;
+
+import br.com.unit.fisicoquimica.domain.calculo.CalculadoraBase;
 
 /** Taxa comparativa simplificada: 1 / tempo. */
 public final class TaxaComparativa extends CalculadoraBase {

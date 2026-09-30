@@ -1,8 +1,7 @@
-package br.com.unit.fisicoquimica.ui;
+package br.com.unit.fisicoquimica.reacao;
 
-import br.com.unit.fisicoquimica.model.MedicaoReacao;
 import br.com.unit.fisicoquimica.service.CsvService;
-import br.com.unit.fisicoquimica.service.ReacaoService;
+import br.com.unit.fisicoquimica.ui.Ui;
 import br.com.unit.fisicoquimica.util.Dialogos;
 
 import javax.swing.JButton;
@@ -18,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class ReacaoPanel extends JPanel {
+public class ReacaoPanel extends JPanel {
     private static final long serialVersionUID = 1L;
 
     final JTextField temperatura = new JTextField();
@@ -29,7 +28,7 @@ class ReacaoPanel extends JPanel {
     final List<MedicaoReacao> dados = new ArrayList<>();
     final ReacaoService service = new ReacaoService();
 
-    ReacaoPanel() {
+    public ReacaoPanel() {
         setLayout(new BorderLayout());
         JPanel raiz = Ui.painel("MVP 2 — Análise de reação química");
         add(raiz);
