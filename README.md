@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Aplicação desktop simples para apoiar atividades de físico-química. O projeto permite fazer cálculos, simular decaimento nuclear, organizar dados de experimento e gerar gráficos e relatórios básicos.
+Aplicação desktop simples para apoiar atividades de físico-química. O projeto permite fazer cálculos, simular decaimento nuclear, organizar dados de experimento e gerar gráficos básicos.
 
 ## Tecnologias
 
@@ -18,16 +18,15 @@ Aplicação desktop simples para apoiar atividades de físico-química. O projet
 2. **Reação química:** cadastro de temperatura e tempo, com taxa comparativa `1 / tempo`. É uma simplificação educacional, não uma lei cinética completa.
 3. **Decaimento nuclear:** cálculo de `N(t) = N0 × (1/2)^(t / meia-vida)`, tabela, gráfico e exportação CSV.
 4. **Colorimetria:** cálculo de absorbância com `A = log10(I0 / I)`, tabela de amostras, gráfico e exportação CSV.
-5. **Dados experimentais:** importação de CSV, estatísticas, gráfico, processamento de absorbância e exportação.
-6. **Relatório experimental:** resumo com quantidade, soma, média, mínimo, máximo, amplitude e mediana.
+5. **Dados experimentais:** importação de CSV, gráfico, processamento de absorbância, exportação e resumo com quantidade, soma, média, mínimo, máximo, amplitude e mediana.
 
 ## Conceitos de Orientação a Objetos
 
-- **Encapsulamento:** `LaboratorioService` mantém suas calculadoras em um atributo privado e `RelatorioService` mantém o serviço de estatística privado. As validações de cada fórmula ficam nas próprias classes de cálculo.
-- **Herança:** `CalculadoraBase` é uma classe abstrata com validação de quantidade e de valores finitos. `CelsiusParaKelvin`, `KelvinParaCelsius`, `TaxaComparativa`, `Absorbancia` e `DecaimentoNuclear` herdam dela.
-- **Polimorfismo:** todas essas classes implementam `Calculadora`. O método `calcular(double... valores)` é chamado pelo mesmo contrato, mesmo com fórmulas diferentes.
-- **Abstração:** as fórmulas ficam em `domain/calculo`, as regras de aplicação em `service`, os dados em `model` e os componentes visuais em `ui`.
-- **Baixo acoplamento:** `LaboratorioService` recebe uma coleção de `Calculadora` e não depende de uma fórmula específica. As telas Swing chamam serviços e não executam cálculos científicos diretamente.
+- **Encapsulamento:** os serviços mantêm as calculadoras em atributos privados e cada calculadora valida os valores recebidos.
+- **Herança:** `CalculadoraBase` é a classe abstrata com validações compartilhadas. As calculadoras concretas herdam dela.
+- **Polimorfismo:** `Calculadora` possui o método `calcular(double... valores)`. Por exemplo, uma variável `Calculadora` pode apontar para `Absorbancia` ou `DecaimentoNuclear`.
+- **Abstração:** as fórmulas ficam em `domain/calculo`, as regras em `service`, os dados em `model` e as telas em `ui`.
+- **Baixo acoplamento:** `LaboratorioService` recebe uma `Calculadora` e não precisa saber qual fórmula ela executa. As telas Swing chamam serviços, sem fórmulas científicas nos botões.
 
 ## Estrutura do projeto
 
@@ -36,7 +35,7 @@ src/main/java/br/com/unit/fisicoquimica/
 ├── Main.java
 ├── domain/calculo/  calculadoras e contrato polimórfico
 ├── model/           dados imutáveis do experimento
-├── service/         regras, CSV, gráficos e relatório
+├── service/         regras, CSV e gráficos
 ├── ui/              telas Swing
 └── util/            mensagens e leitura de campos
 ```
