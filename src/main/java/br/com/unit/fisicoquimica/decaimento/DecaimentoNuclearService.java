@@ -1,6 +1,6 @@
 package br.com.unit.fisicoquimica.decaimento;
 
-import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
+import br.com.unit.fisicoquimica.shared.Calculadora;
 
 import java.util.ArrayList;
 import java.util.List;

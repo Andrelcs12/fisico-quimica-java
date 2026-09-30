@@ -1,8 +1,8 @@
 package br.com.unit.fisicoquimica.reacao;
 
-import br.com.unit.fisicoquimica.service.CsvService;
+import br.com.unit.fisicoquimica.shared.CsvService;
 import br.com.unit.fisicoquimica.ui.Ui;
-import br.com.unit.fisicoquimica.util.Dialogos;
+import br.com.unit.fisicoquimica.shared.Dialogos;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;

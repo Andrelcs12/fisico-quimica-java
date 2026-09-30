@@ -1,6 +1,6 @@
 package br.com.unit.fisicoquimica.calculos;
 
-import br.com.unit.fisicoquimica.util.Dialogos;
+import br.com.unit.fisicoquimica.shared.Dialogos;
 import br.com.unit.fisicoquimica.ui.Ui;
 
 import javax.swing.JButton;

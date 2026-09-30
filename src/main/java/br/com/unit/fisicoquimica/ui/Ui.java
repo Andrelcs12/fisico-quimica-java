@@ -1,6 +1,6 @@
 package br.com.unit.fisicoquimica.ui;
 
-import br.com.unit.fisicoquimica.util.Dialogos;
+import br.com.unit.fisicoquimica.shared.Dialogos;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;

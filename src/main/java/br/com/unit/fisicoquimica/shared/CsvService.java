@@ -1,4 +1,4 @@
-package br.com.unit.fisicoquimica.service;
+package br.com.unit.fisicoquimica.shared;
 
 import br.com.unit.fisicoquimica.dados.MedicaoExperimental;
 import br.com.unit.fisicoquimica.dados.PontoAbsorbancia;

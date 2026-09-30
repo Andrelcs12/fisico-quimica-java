@@ -1,6 +1,4 @@
-package br.com.unit.fisicoquimica.service;
-
-import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
+package br.com.unit.fisicoquimica.shared;
 
 /** Executa qualquer cálculo pelo contrato comum. */
 public class LaboratorioService {

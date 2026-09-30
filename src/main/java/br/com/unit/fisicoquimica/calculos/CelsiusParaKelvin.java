@@ -1,6 +1,6 @@
 package br.com.unit.fisicoquimica.calculos;
 
-import br.com.unit.fisicoquimica.domain.calculo.CalculadoraBase;
+import br.com.unit.fisicoquimica.shared.CalculadoraBase;
 
 public final class CelsiusParaKelvin extends CalculadoraBase {
     @Override

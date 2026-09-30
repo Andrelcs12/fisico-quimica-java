@@ -4,7 +4,7 @@ import br.com.unit.fisicoquimica.dados.MedicaoExperimental;
 import br.com.unit.fisicoquimica.dados.PontoAbsorbancia;
 import br.com.unit.fisicoquimica.dados.EstatisticaService;
 import br.com.unit.fisicoquimica.decaimento.DecaimentoNuclearService;
-import br.com.unit.fisicoquimica.service.*;
+import br.com.unit.fisicoquimica.shared.CsvService;
 import org.junit.jupiter.api.io.TempDir;
 import org.junit.jupiter.api.Test;
 import java.nio.file.*;

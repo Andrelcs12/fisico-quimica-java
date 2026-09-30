@@ -1,9 +1,9 @@
 package br.com.unit.fisicoquimica.colorimetria;
 
-import br.com.unit.fisicoquimica.service.CsvService;
-import br.com.unit.fisicoquimica.service.GraficoService;
+import br.com.unit.fisicoquimica.shared.CsvService;
+import br.com.unit.fisicoquimica.shared.GraficoService;
 import br.com.unit.fisicoquimica.ui.Ui;
-import br.com.unit.fisicoquimica.util.Dialogos;
+import br.com.unit.fisicoquimica.shared.Dialogos;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;

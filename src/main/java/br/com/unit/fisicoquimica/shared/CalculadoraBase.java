@@ -1,4 +1,4 @@
-package br.com.unit.fisicoquimica.domain.calculo;
+package br.com.unit.fisicoquimica.shared;
 
 /** Classe abstrata que concentra validações compartilhadas. */
 public abstract class CalculadoraBase implements Calculadora {

@@ -3,7 +3,7 @@ package br.com.unit.fisicoquimica;
 import br.com.unit.fisicoquimica.colorimetria.AmostraColorimetrica;
 import br.com.unit.fisicoquimica.decaimento.PontoDecaimento;
 import br.com.unit.fisicoquimica.dados.MedicaoExperimental;
-import br.com.unit.fisicoquimica.service.GraficoService;
+import br.com.unit.fisicoquimica.shared.GraficoService;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

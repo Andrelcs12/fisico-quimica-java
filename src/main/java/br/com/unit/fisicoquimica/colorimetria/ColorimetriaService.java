@@ -1,6 +1,6 @@
 package br.com.unit.fisicoquimica.colorimetria;
 
-import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
+import br.com.unit.fisicoquimica.shared.Calculadora;
 
 public class ColorimetriaService {
     private final Calculadora absorbancia = new Absorbancia();

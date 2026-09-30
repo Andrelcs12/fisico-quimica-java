@@ -1,4 +1,4 @@
-package br.com.unit.fisicoquimica.util;
+package br.com.unit.fisicoquimica.shared;
 
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
