@@ -83,8 +83,8 @@ class DadosExperimentaisPanel extends JPanel {
         tabela.setRowCount(0);
         for (MedicaoExperimental medicao : dados) tabela.addRow(new Object[]{medicao.tempo(), medicao.valor()});
         Estatisticas estatisticas = new EstatisticaService().calcular(dados);
-        resumo.setText(String.format("%d registros | Média: %.2f | Mínimo: %.2f | Máximo: %.2f",
-                estatisticas.quantidade(), estatisticas.media(), estatisticas.minimo(), estatisticas.maximo()));
+        resumo.setText(String.format("%d registros | Média: %.2f | Mínimo: %.2f | Máximo: %.2f | Amplitude: %.2f",
+                estatisticas.quantidade(), estatisticas.media(), estatisticas.minimo(), estatisticas.maximo(), estatisticas.amplitude()));
     }
 
     void graficoDados() {

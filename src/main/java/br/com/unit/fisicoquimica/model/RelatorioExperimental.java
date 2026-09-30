@@ -10,8 +10,11 @@ public record RelatorioExperimental(String titulo, Estatisticas estatisticas) {
     public String comoTexto() {
         return "RELATÓRIO: " + titulo + System.lineSeparator()
                 + "Quantidade de medições: " + estatisticas.quantidade() + System.lineSeparator()
+                + String.format("Soma dos sinais: %.4f%n", estatisticas.soma())
                 + String.format("Média do sinal: %.4f%n", estatisticas.media())
                 + String.format("Menor sinal: %.4f%n", estatisticas.minimo())
-                + String.format("Maior sinal: %.4f", estatisticas.maximo());
+                + String.format("Maior sinal: %.4f%n", estatisticas.maximo())
+                + String.format("Amplitude: %.4f%n", estatisticas.amplitude())
+                + String.format("Mediana: %.4f", estatisticas.mediana());
     }
 }
