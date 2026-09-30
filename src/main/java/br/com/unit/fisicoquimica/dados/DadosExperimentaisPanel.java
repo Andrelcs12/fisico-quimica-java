@@ -1,10 +1,8 @@
-package br.com.unit.fisicoquimica.ui;
+package br.com.unit.fisicoquimica.dados;
 
-import br.com.unit.fisicoquimica.model.Estatisticas;
-import br.com.unit.fisicoquimica.model.MedicaoExperimental;
 import br.com.unit.fisicoquimica.service.CsvService;
-import br.com.unit.fisicoquimica.service.EstatisticaService;
 import br.com.unit.fisicoquimica.service.GraficoService;
+import br.com.unit.fisicoquimica.ui.Ui;
 import br.com.unit.fisicoquimica.util.Dialogos;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -23,7 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-class DadosExperimentaisPanel extends JPanel {
+public class DadosExperimentaisPanel extends JPanel {
     private static final long serialVersionUID = 1L;
 
     private static final List<MedicaoExperimental> DADOS_DEMONSTRACAO = List.of(
@@ -40,7 +38,7 @@ class DadosExperimentaisPanel extends JPanel {
     List<MedicaoExperimental> dados = List.of();
     final CsvService csv = new CsvService();
 
-    DadosExperimentaisPanel() {
+    public DadosExperimentaisPanel() {
         setLayout(new BorderLayout());
         JPanel raiz = Ui.painel("MVP 5 — Análise de dados experimentais");
         add(raiz);

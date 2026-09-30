@@ -1,4 +1,4 @@
-package br.com.unit.fisicoquimica.ui;
+package br.com.unit.fisicoquimica.dados;
 
 import br.com.unit.fisicoquimica.calculos.CalculosPanel;
 import br.com.unit.fisicoquimica.colorimetria.ColorimetriaPanel;
@@ -29,11 +29,11 @@ class PainelSmokeTest {
         SwingUtilities.invokeAndWait(() -> {
             DadosExperimentaisPanel painel = new DadosExperimentaisPanel();
             painel.atualizarDados(java.util.List.of(
-                    new br.com.unit.fisicoquimica.model.MedicaoExperimental(0, 10),
-                    new br.com.unit.fisicoquimica.model.MedicaoExperimental(1, 12),
-                    new br.com.unit.fisicoquimica.model.MedicaoExperimental(2, 14),
-                    new br.com.unit.fisicoquimica.model.MedicaoExperimental(3, 16),
-                    new br.com.unit.fisicoquimica.model.MedicaoExperimental(4, 18)
+                    new MedicaoExperimental(0, 10),
+                    new MedicaoExperimental(1, 12),
+                    new MedicaoExperimental(2, 14),
+                    new MedicaoExperimental(3, 16),
+                    new MedicaoExperimental(4, 18)
             ));
             assertEquals(5, painel.tabela.getRowCount());
             assertTrue(painel.resumo.getText().contains("5 registros"));

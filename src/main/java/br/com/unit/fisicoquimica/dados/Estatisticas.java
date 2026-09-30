@@ -1,4 +1,4 @@
-package br.com.unit.fisicoquimica.model;
+package br.com.unit.fisicoquimica.dados;
 
 /** Valores calculados a partir dos sinais de um experimento. */
 public record Estatisticas(

@@ -1,7 +1,4 @@
-package br.com.unit.fisicoquimica.service;
-
-import br.com.unit.fisicoquimica.model.Estatisticas;
-import br.com.unit.fisicoquimica.model.MedicaoExperimental;
+package br.com.unit.fisicoquimica.dados;
 
 import java.util.ArrayList;
 import java.util.Collections;

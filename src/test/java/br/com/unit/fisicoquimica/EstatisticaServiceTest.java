@@ -1,7 +1,7 @@
 package br.com.unit.fisicoquimica;
 
-import br.com.unit.fisicoquimica.model.MedicaoExperimental;
-import br.com.unit.fisicoquimica.service.EstatisticaService;
+import br.com.unit.fisicoquimica.dados.MedicaoExperimental;
+import br.com.unit.fisicoquimica.dados.EstatisticaService;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

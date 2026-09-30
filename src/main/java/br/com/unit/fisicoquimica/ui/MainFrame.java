@@ -2,6 +2,7 @@ package br.com.unit.fisicoquimica.ui;
 
 import br.com.unit.fisicoquimica.calculos.CalculosPanel;
 import br.com.unit.fisicoquimica.colorimetria.ColorimetriaPanel;
+import br.com.unit.fisicoquimica.dados.DadosExperimentaisPanel;
 import br.com.unit.fisicoquimica.decaimento.DecaimentoPanel;
 import br.com.unit.fisicoquimica.reacao.ReacaoPanel;
 

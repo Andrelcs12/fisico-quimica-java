@@ -1,7 +1,7 @@
 package br.com.unit.fisicoquimica.service;
 
-import br.com.unit.fisicoquimica.model.MedicaoExperimental;
-import br.com.unit.fisicoquimica.model.PontoAbsorbancia;
+import br.com.unit.fisicoquimica.dados.MedicaoExperimental;
+import br.com.unit.fisicoquimica.dados.PontoAbsorbancia;
 
 import java.io.BufferedWriter;
 import java.io.File;
