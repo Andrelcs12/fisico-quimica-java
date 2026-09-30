@@ -1,67 +1,88 @@
-# Projeto — Java aplicado à Físico-Química
+# Projeto Java aplicado à Físico-Química
 
-## Contexto e objetivo
+## Objetivo
 
-Protótipo educacional inspirado conceitualmente no artigo *“Modular Integration of Python Programming in Undergraduate Physical Chemistry Experiments”*. Ele adapta a progressão de cálculos, dados e modelagem para Java, sem tentar reproduzir integralmente o artigo.
+Aplicação desktop simples para apoiar atividades de físico-química. O projeto permite fazer cálculos, simular decaimento nuclear, organizar dados de experimento e gerar gráficos e relatórios básicos.
 
 ## Tecnologias
 
-- Java 17 e Maven
-- Swing para interface desktop
-- JFreeChart para gráficos
-- JUnit 5 para testes
+- Java 17
+- Maven
+- Java Swing
+- JFreeChart
+- JUnit 5
 
 ## Funcionalidades
 
-1. **Cálculos básicos:** conversões Celsius/Kelvin com validação física.
-2. **Reação química:** medições de temperatura e tempo; taxa comparativa simplificada `1/tempo`.
-3. **Decaimento nuclear:** `N(t) = N0 × (1/2)^(t/meiaVida)`, tabela, gráfico e CSV.
-4. **Colorimetria:** absorbância `A = log10(I0/I)`, tabela, gráfico de concentração e CSV.
-5. **Dados experimentais:** leitura `Time,Signal`, estatísticas, gráficos e processamento simplificado de absorbância transiente.
-6. **Relatório experimental:** importa um CSV e apresenta quantidade, média, mínimo e máximo das medições.
+1. **Conversões de temperatura:** Celsius para Kelvin e Kelvin para Celsius, respeitando o zero absoluto.
+2. **Reação química:** cadastro de temperatura e tempo, com taxa comparativa `1 / tempo`. É uma simplificação educacional, não uma lei cinética completa.
+3. **Decaimento nuclear:** cálculo de `N(t) = N0 × (1/2)^(t / meia-vida)`, tabela, gráfico e exportação CSV.
+4. **Colorimetria:** cálculo de absorbância com `A = log10(I0 / I)`, tabela de amostras, gráfico e exportação CSV.
+5. **Dados experimentais:** importação de CSV, estatísticas, gráfico, processamento de absorbância e exportação.
+6. **Relatório experimental:** resumo com quantidade, soma, média, mínimo, máximo, amplitude e mediana.
 
-## Orientação a objetos
+## Conceitos de Orientação a Objetos
 
-O projeto usa os conceitos pedidos para a disciplina sem colocar regras científicas dentro da tela:
+- **Encapsulamento:** `LaboratorioService` mantém suas calculadoras em um atributo privado e `RelatorioService` mantém o serviço de estatística privado. As validações de cada fórmula ficam nas próprias classes de cálculo.
+- **Herança:** `CalculadoraBase` é uma classe abstrata com validação de quantidade e de valores finitos. `CelsiusParaKelvin`, `KelvinParaCelsius`, `TaxaComparativa`, `Absorbancia` e `DecaimentoNuclear` herdam dela.
+- **Polimorfismo:** todas essas classes implementam `Calculadora`. O método `calcular(double... valores)` é chamado pelo mesmo contrato, mesmo com fórmulas diferentes.
+- **Abstração:** as fórmulas ficam em `domain/calculo`, as regras de aplicação em `service`, os dados em `model` e os componentes visuais em `ui`.
+- **Baixo acoplamento:** `LaboratorioService` recebe uma coleção de `Calculadora` e não depende de uma fórmula específica. As telas Swing chamam serviços e não executam cálculos científicos diretamente.
 
-- **Encapsulamento:** cada calculadora guarda suas validações e expõe apenas o método `calcular`.
-- **Herança:** `CalculadoraBase` reúne as validações usadas pelas calculadoras concretas.
-- **Polimorfismo:** `LaboratorioService` trabalha com a interface `Calculadora`; Celsius, Kelvin, taxa e absorbância podem ser executados pelo mesmo contrato.
-- **Baixo acoplamento:** a tela de conversão chama `LaboratorioService` pelo código do cálculo e não executa fórmulas diretamente.
-
-## Arquitetura
+## Estrutura do projeto
 
 ```text
 src/main/java/br/com/unit/fisicoquimica/
 ├── Main.java
-├── model/       objetos do domínio
-├── domain/      contratos e calculadoras polimórficas
-├── service/     cálculos, CSV e estatística
-├── ui/          MainFrame e painéis Swing
-└── util/        validação e mensagens
+├── domain/calculo/  calculadoras e contrato polimórfico
+├── model/           dados imutáveis do experimento
+├── service/         regras, CSV, gráficos e relatório
+├── ui/              telas Swing
+└── util/            mensagens e leitura de campos
 ```
 
 ## Como executar
 
-No IntelliJ, abra o projeto Maven e execute `br.com.unit.fisicoquimica.Main`.
+Abra o projeto como Maven no IntelliJ e execute `br.com.unit.fisicoquimica.Main`.
 
-Requisito: Java 17 ou superior. Pelo terminal, com Maven disponível:
+Pelo terminal, com Maven instalado:
 
 ```bash
 mvn clean package
 java -jar target/fisico-quimica-java-1.0.0.jar
 ```
 
-Também é possível usar o Maven Wrapper no Windows: `./mvnw.cmd test` e `./mvnw.cmd clean package`.
+No Windows também é possível usar o Maven Wrapper:
 
-## Testes
+```bash
+.\mvnw.cmd test
+.\mvnw.cmd clean package
+```
 
-Execute `mvn test` (ou `./mvnw.cmd test`). A suíte valida fórmulas, entradas inválidas, CSVs temporários, exportação, dados de demonstração, datasets de gráficos e a construção dos painéis Swing no EDT.
+## Como executar os testes
 
-## Dados de demonstração
+```bash
+mvn test
+```
 
-Os arquivos [experimento-exemplo.csv](sample-data/experimento-exemplo.csv) e [absorbancia-exemplo.csv](sample-data/absorbancia-exemplo.csv) podem ser carregados diretamente no módulo 5.
+Os testes verificam fórmulas, zero absoluto, entradas inválidas, polimorfismo, estatísticas, CSV, exportação e datasets dos gráficos.
 
-## Relação com a referência Python e limitações
+## Exemplos de CSV
 
-O processamento em Java usa o mesmo raciocínio conceitual: maior sinal positivo como referência, menor sinal como tempo zero, normalização temporal e `-log10(signal/referência)`. Não há integração com Arduino, banco de dados nem análises cinéticas avançadas. Múltiplos CSVs e interpolação não fazem parte deste MVP, para não ocultar aproximações científicas.
+Os arquivos em `sample-data/` seguem este formato:
+
+```csv
+Time,Signal
+0,100
+1,95
+2,88
+```
+
+O cabeçalho `Time,Signal` é obrigatório. Também são aceitos ponto ou vírgula decimal quando o separador das colunas é `;`, por exemplo `0,5;10,2`.
+
+## Limitações
+
+- A taxa de reação é apenas comparativa.
+- O processamento de absorbância usa uma referência simples baseada no maior sinal positivo.
+- Não há integração com equipamentos, banco de dados ou análises cinéticas avançadas.
+- O projeto trabalha com um arquivo CSV por vez.
