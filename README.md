@@ -18,6 +18,7 @@ Protótipo educacional inspirado conceitualmente no artigo *“Modular Integrati
 3. **Decaimento nuclear:** `N(t) = N0 × (1/2)^(t/meiaVida)`, tabela, gráfico e CSV.
 4. **Colorimetria:** absorbância `A = log10(I0/I)`, tabela, gráfico de concentração e CSV.
 5. **Dados experimentais:** leitura `Time,Signal`, estatísticas, gráficos e processamento simplificado de absorbância transiente.
+6. **Relatório experimental:** importa um CSV e apresenta quantidade, média, mínimo e máximo das medições.
 
 ## Orientação a objetos
 
