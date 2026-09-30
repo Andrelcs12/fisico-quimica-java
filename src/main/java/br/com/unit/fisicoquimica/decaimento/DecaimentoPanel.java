@@ -1,9 +1,8 @@
-package br.com.unit.fisicoquimica.ui;
+package br.com.unit.fisicoquimica.decaimento;
 
-import br.com.unit.fisicoquimica.model.PontoDecaimento;
 import br.com.unit.fisicoquimica.service.CsvService;
-import br.com.unit.fisicoquimica.service.DecaimentoNuclearService;
 import br.com.unit.fisicoquimica.service.GraficoService;
+import br.com.unit.fisicoquimica.ui.Ui;
 import br.com.unit.fisicoquimica.util.Dialogos;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -22,7 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-class DecaimentoPanel extends JPanel {
+public class DecaimentoPanel extends JPanel {
     private static final long serialVersionUID = 1L;
 
     final JTextField inicial = new JTextField("100");
@@ -36,7 +35,7 @@ class DecaimentoPanel extends JPanel {
     List<PontoDecaimento> dados = List.of();
     final DecaimentoNuclearService service = new DecaimentoNuclearService();
 
-    DecaimentoPanel() {
+    public DecaimentoPanel() {
         setLayout(new BorderLayout());
         JPanel raiz = Ui.painel("MVP 3 — Simulação nuclear");
         add(raiz);

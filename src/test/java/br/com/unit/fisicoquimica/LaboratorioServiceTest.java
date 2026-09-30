@@ -1,9 +1,9 @@
 package br.com.unit.fisicoquimica;
 
 import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
-import br.com.unit.fisicoquimica.domain.calculo.Absorbancia;
+import br.com.unit.fisicoquimica.colorimetria.Absorbancia;
 import br.com.unit.fisicoquimica.calculos.CelsiusParaKelvin;
-import br.com.unit.fisicoquimica.domain.calculo.DecaimentoNuclear;
+import br.com.unit.fisicoquimica.decaimento.DecaimentoNuclear;
 import br.com.unit.fisicoquimica.calculos.KelvinParaCelsius;
 import br.com.unit.fisicoquimica.reacao.TaxaComparativa;
 import br.com.unit.fisicoquimica.service.LaboratorioService;

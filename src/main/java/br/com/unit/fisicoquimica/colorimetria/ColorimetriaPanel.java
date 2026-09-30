@@ -1,9 +1,8 @@
-package br.com.unit.fisicoquimica.ui;
+package br.com.unit.fisicoquimica.colorimetria;
 
-import br.com.unit.fisicoquimica.model.AmostraColorimetrica;
-import br.com.unit.fisicoquimica.service.ColorimetriaService;
 import br.com.unit.fisicoquimica.service.CsvService;
 import br.com.unit.fisicoquimica.service.GraficoService;
+import br.com.unit.fisicoquimica.ui.Ui;
 import br.com.unit.fisicoquimica.util.Dialogos;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
@@ -22,7 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class ColorimetriaPanel extends JPanel {
+public class ColorimetriaPanel extends JPanel {
     private static final long serialVersionUID = 1L;
 
     final JTextField id = new JTextField();
@@ -35,7 +34,7 @@ class ColorimetriaPanel extends JPanel {
     final List<AmostraColorimetrica> dados = new ArrayList<>();
     final ColorimetriaService service = new ColorimetriaService();
 
-    ColorimetriaPanel() {
+    public ColorimetriaPanel() {
         setLayout(new BorderLayout());
         JPanel raiz = Ui.painel("MVP 4 — Colorimetria");
         add(raiz);

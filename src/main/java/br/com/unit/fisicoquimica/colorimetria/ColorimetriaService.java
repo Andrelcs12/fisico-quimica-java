@@ -1,6 +1,5 @@
-package br.com.unit.fisicoquimica.service;
+package br.com.unit.fisicoquimica.colorimetria;
 
-import br.com.unit.fisicoquimica.domain.calculo.Absorbancia;
 import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
 
 public class ColorimetriaService {

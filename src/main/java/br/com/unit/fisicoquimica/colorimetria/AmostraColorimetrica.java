@@ -1,4 +1,4 @@
-package br.com.unit.fisicoquimica.model;
+package br.com.unit.fisicoquimica.colorimetria;
 
 public record AmostraColorimetrica(
         String identificacao,

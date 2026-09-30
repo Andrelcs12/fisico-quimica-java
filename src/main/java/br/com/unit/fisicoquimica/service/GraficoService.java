@@ -1,9 +1,9 @@
 package br.com.unit.fisicoquimica.service;
 
-import br.com.unit.fisicoquimica.model.AmostraColorimetrica;
+import br.com.unit.fisicoquimica.colorimetria.AmostraColorimetrica;
+import br.com.unit.fisicoquimica.decaimento.PontoDecaimento;
 import br.com.unit.fisicoquimica.model.MedicaoExperimental;
 import br.com.unit.fisicoquimica.model.PontoAbsorbancia;
-import br.com.unit.fisicoquimica.model.PontoDecaimento;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 

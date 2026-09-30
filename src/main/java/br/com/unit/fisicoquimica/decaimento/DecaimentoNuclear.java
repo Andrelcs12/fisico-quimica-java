@@ -1,4 +1,6 @@
-package br.com.unit.fisicoquimica.domain.calculo;
+package br.com.unit.fisicoquimica.decaimento;
+
+import br.com.unit.fisicoquimica.domain.calculo.CalculadoraBase;
 
 /** N(t) = N0 × (1/2)^(t / meia-vida). */
 public final class DecaimentoNuclear extends CalculadoraBase {

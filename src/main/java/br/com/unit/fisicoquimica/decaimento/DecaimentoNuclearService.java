@@ -1,8 +1,6 @@
-package br.com.unit.fisicoquimica.service;
+package br.com.unit.fisicoquimica.decaimento;
 
 import br.com.unit.fisicoquimica.domain.calculo.Calculadora;
-import br.com.unit.fisicoquimica.domain.calculo.DecaimentoNuclear;
-import br.com.unit.fisicoquimica.model.PontoDecaimento;
 
 import java.util.ArrayList;
 import java.util.List;

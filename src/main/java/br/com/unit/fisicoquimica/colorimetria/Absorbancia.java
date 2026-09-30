@@ -1,4 +1,6 @@
-package br.com.unit.fisicoquimica.domain.calculo;
+package br.com.unit.fisicoquimica.colorimetria;
+
+import br.com.unit.fisicoquimica.domain.calculo.CalculadoraBase;
 
 /** Lei de Beer-Lambert na forma A = log10(I0 / I). */
 public final class Absorbancia extends CalculadoraBase {
