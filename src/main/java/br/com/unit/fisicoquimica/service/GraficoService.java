@@ -10,9 +10,29 @@ import org.jfree.data.xy.XYSeriesCollection;
 import java.util.List;
 
 public class GraficoService {
-    public XYSeriesCollection dadosDecaimento(List<PontoDecaimento> pontos) { return serieDecaimento(pontos); }
-    public XYSeriesCollection dadosExperimentais(List<MedicaoExperimental> dados) { XYSeries s = new XYSeries("Signal"); dados.forEach(m -> s.add(m.tempo(), m.valor())); return new XYSeriesCollection(s); }
-    public XYSeriesCollection dadosAbsorbancia(List<PontoAbsorbancia> dados) { XYSeries s = new XYSeries("Absorbância"); dados.forEach(m -> s.add(m.tempo(), m.absorbancia())); return new XYSeriesCollection(s); }
-    public XYSeriesCollection dadosColorimetria(List<AmostraColorimetrica> dados) { XYSeries s = new XYSeries("Amostras"); dados.stream().filter(a -> a.concentracao() != null).forEach(a -> s.add(a.concentracao().doubleValue(), a.absorbancia())); return new XYSeriesCollection(s); }
-    private XYSeriesCollection serieDecaimento(List<PontoDecaimento> pontos) { XYSeries s = new XYSeries("Quantidade restante"); pontos.forEach(p -> s.add(p.tempo(), p.quantidade())); return new XYSeriesCollection(s); }
+    public XYSeriesCollection dadosDecaimento(List<PontoDecaimento> pontos) {
+        XYSeries serie = new XYSeries("Quantidade restante");
+        pontos.forEach(ponto -> serie.add(ponto.tempo(), ponto.quantidade()));
+        return new XYSeriesCollection(serie);
+    }
+
+    public XYSeriesCollection dadosExperimentais(List<MedicaoExperimental> dados) {
+        XYSeries serie = new XYSeries("Signal");
+        dados.forEach(medicao -> serie.add(medicao.tempo(), medicao.valor()));
+        return new XYSeriesCollection(serie);
+    }
+
+    public XYSeriesCollection dadosAbsorbancia(List<PontoAbsorbancia> dados) {
+        XYSeries serie = new XYSeries("Absorbância");
+        dados.forEach(ponto -> serie.add(ponto.tempo(), ponto.absorbancia()));
+        return new XYSeriesCollection(serie);
+    }
+
+    public XYSeriesCollection dadosColorimetria(List<AmostraColorimetrica> dados) {
+        XYSeries serie = new XYSeries("Amostras");
+        dados.stream()
+                .filter(amostra -> amostra.concentracao() != null)
+                .forEach(amostra -> serie.add(amostra.concentracao().doubleValue(), amostra.absorbancia()));
+        return new XYSeriesCollection(serie);
+    }
 }
