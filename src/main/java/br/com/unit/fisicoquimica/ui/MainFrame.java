@@ -18,7 +18,6 @@ public class MainFrame extends JFrame {
         abas.addTab("3. Decaimento", new DecaimentoPanel());
         abas.addTab("4. Colorimetria", new ColorimetriaPanel());
         abas.addTab("5. Dados experimentais", new DadosExperimentaisPanel());
-        abas.addTab("6. Relatório", new RelatorioPanel());
         add(abas);
     }
 }
