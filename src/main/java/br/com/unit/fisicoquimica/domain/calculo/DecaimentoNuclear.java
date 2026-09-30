@@ -3,16 +3,6 @@ package br.com.unit.fisicoquimica.domain.calculo;
 /** N(t) = N0 × (1/2)^(t / meia-vida). */
 public final class DecaimentoNuclear extends CalculadoraBase {
     @Override
-    public String codigo() {
-        return "decaimento-nuclear";
-    }
-
-    @Override
-    public String nome() {
-        return "Decaimento nuclear";
-    }
-
-    @Override
     public double calcular(double... valores) {
         exigirQuantidade(valores, 3);
         double quantidadeInicial = valores[0];

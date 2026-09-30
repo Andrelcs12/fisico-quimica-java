@@ -8,16 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DecaimentoNuclearService {
-    private final Calculadora calculadora;
-
-    public DecaimentoNuclearService() {
-        this(new DecaimentoNuclear());
-    }
-
-    public DecaimentoNuclearService(Calculadora calculadora) {
-        if (calculadora == null) throw new IllegalArgumentException("A calculadora de decaimento é obrigatória.");
-        this.calculadora = calculadora;
-    }
+    private final Calculadora calculadora = new DecaimentoNuclear();
 
     public double calcularQuantidade(double quantidadeInicial, double meiaVida, double tempo) {
         return calculadora.calcular(quantidadeInicial, meiaVida, tempo);

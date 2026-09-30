@@ -2,9 +2,6 @@ package br.com.unit.fisicoquimica.domain.calculo;
 
 /** Taxa comparativa simplificada: 1 / tempo. */
 public final class TaxaComparativa extends CalculadoraBase {
-    @Override public String codigo() { return "taxa-reacao"; }
-    @Override public String nome() { return "Taxa comparativa da reação"; }
-
     @Override
     public double calcular(double... valores) {
         exigirQuantidade(valores, 1);

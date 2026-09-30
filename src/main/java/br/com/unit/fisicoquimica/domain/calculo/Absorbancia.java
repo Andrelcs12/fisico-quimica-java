@@ -2,9 +2,6 @@ package br.com.unit.fisicoquimica.domain.calculo;
 
 /** Lei de Beer-Lambert na forma A = log10(I0 / I). */
 public final class Absorbancia extends CalculadoraBase {
-    @Override public String codigo() { return "absorbancia"; }
-    @Override public String nome() { return "Absorbância"; }
-
     @Override
     public double calcular(double... valores) {
         exigirQuantidade(valores, 2);
