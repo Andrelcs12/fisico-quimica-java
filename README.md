@@ -11,6 +11,7 @@ Aplicação desktop simples para apoiar atividades de físico-química. O projet
 - Java Swing
 - JFreeChart
 - JUnit 5
+- CSV
 
 ## Funcionalidades
 
@@ -25,7 +26,7 @@ Aplicação desktop simples para apoiar atividades de físico-química. O projet
 - **Encapsulamento:** os serviços mantêm as calculadoras em atributos privados e cada calculadora valida os valores recebidos.
 - **Herança:** `CalculadoraBase` é a classe abstrata com validações compartilhadas. As calculadoras concretas herdam dela.
 - **Polimorfismo:** `Calculadora` possui o método `calcular(double... valores)`. Por exemplo, uma variável `Calculadora` pode apontar para `Absorbancia` ou `DecaimentoNuclear`.
-- **Abstração:** as fórmulas ficam em `domain/calculo`, as regras em `service`, os dados em `model` e as telas em `ui`.
+- **Abstração:** cada módulo reúne suas fórmulas, regras, dados e painel. As telas Swing continuam sem fórmulas científicas nos botões.
 - **Baixo acoplamento:** `LaboratorioService` recebe uma `Calculadora` e não precisa saber qual fórmula ela executa. As telas Swing chamam serviços, sem fórmulas científicas nos botões.
 
 ## Estrutura do projeto
@@ -33,12 +34,16 @@ Aplicação desktop simples para apoiar atividades de físico-química. O projet
 ```text
 src/main/java/br/com/unit/fisicoquimica/
 ├── Main.java
-├── domain/calculo/  calculadoras e contrato polimórfico
-├── model/           dados imutáveis do experimento
-├── service/         regras, CSV e gráficos
-├── ui/              telas Swing
-└── util/            mensagens e leitura de campos
+├── calculos/       conversão térmica
+├── reacao/         taxa e medições de reação
+├── decaimento/     simulação radioativa
+├── colorimetria/   amostras e absorbância
+├── dados/          CSV, estatísticas e análise experimental
+├── shared/         componentes usados por mais de um módulo
+└── ui/             janela e utilitário visual global
 ```
+
+O código foi organizado por módulo funcional, mantendo componentes compartilhados separados para facilitar navegação, manutenção e compreensão do projeto.
 
 ## Como executar
 
